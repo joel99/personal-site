@@ -1,21 +1,23 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import { FiGithub, FiTwitter, FiMail, FiLinkedin, FiFileText } from "react-icons/fi";
+// TODO add email (FiMail)
+import { FiGithub, FiTwitter, FiLinkedin, FiFileText } from "react-icons/fi";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Panel from "../components/panel"
 
 // TODO link status to CMS
-// TODO switch out to better library
-// TODO add resume
 class IndexPage extends React.Component {
   render() {
-    const siteTitle = "Joel Ye";
-    const status = "Say hello: joelye9 at gmail dot com";
     const { data } = this.props;
+    const siteTitle = data.site.siteMetadata.title;
+    const status = "Say hello: joelye9 at gmail dot com";
     const projectData = data.allMdx.edges;
+
+    // https://stackoverflow.com/questions/52574783/gatsby-image-path-from-json
+    // https://stackoverflow.com/questions/57515558/how-should-i-import-all-the-images-under-a-folder-in-gatsby
     const projectPanels = projectData.map(({ node }) => <Panel node={node} />);
 
     const spotlightLinks = [
@@ -119,6 +121,9 @@ export const pageQuery = graphql`
             paper
             code
             title
+            image {
+              base
+            }
           }
         }
       }

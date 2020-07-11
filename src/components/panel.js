@@ -6,24 +6,53 @@
  */
 
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image";
+
 import styled from "styled-components"
 
 import { rhythm } from "../utils/typography"
 import { ButtonLink } from "./button"
 
 // TODO move to YAML
-// TODO image
+// TODO image refactor out into a separate gallery component
 // TODO style other things
 const Panel = ({ node }) => {
+
   const { frontmatter: data } = node;
+
+  const queriedData = useStaticQuery(graphql`
+    query HeaderQuery {
+      site {
+        siteMetadata {
+          author
+        }
+      }
+      allFile(filter: {
+        extension: {regex: "/(jpg)|(jpeg)|(png)/"},
+        sourceInstanceName: {eq: "projects"}})
+      {
+        edges {
+          node {
+            childImageSharp {
+              fluid(quality: 100) {
+                originalName
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  // Find the right one
+  const image = queriedData.allFile.edges.find(e => e.node.childImageSharp.fluid.originalName === data.image.base);
 
   const title = data.title || node.fields.slug;
   const authorSpans = data.authors.map(a => a.trim()).map((a, i) => {
     let style = styles.author;
-    // TODO change to read site metadata
-    if (a === "Joel Ye") {
+    if (a === queriedData.site.siteMetadata.author) {
       style = { ...style, ...styles.authorEmph };
     }
     return (<React.Fragment>
@@ -45,7 +74,8 @@ const Panel = ({ node }) => {
   }
   return (
     <div style={styles.container} key={node.fields.slug}>
-      <h3>
+      {image &&  <Img fluid={image.node.childImageSharp.fluid} alt={title} />}
+      <h3 style={styles.compactHeader}>
         {title}
       </h3>
       <div>
@@ -57,25 +87,6 @@ const Panel = ({ node }) => {
       </div>
     </div>
   );
-  // return (
-  //   <Container>
-  //     <Image
-  //       fixed={image}
-  //       alt={title}
-  //       style={{
-  //         marginRight: rhythm(1 / 2),
-  //         marginBottom: 0,
-  //         minWidth: 50,
-  //         borderRadius: `100%`,
-  //       }}
-  //       imgStyle={{
-  //         borderRadius: `50%`,
-  //       }}
-  //     />
-  //     <h1>{title} </h1>
-  //     <p>{desc}</p>
-  //   </Container>
-  // );
 }
 
 const styles = {
@@ -95,6 +106,10 @@ const styles = {
   },
   linkItem: {
     marginRight: "4px"
+  },
+  compactHeader: {
+    marginTop: "0.5em",
+    marginBottom: "0.5em"
   }
 }
 
