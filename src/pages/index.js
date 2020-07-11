@@ -1,11 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import { SocialIcon } from 'react-social-icons';
+import { FiGithub, FiTwitter, FiMail, FiLinkedin, FiFileText } from "react-icons/fi";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Button from "../components/button"
 import Panel from "../components/panel"
 
 // TODO link status to CMS
@@ -18,6 +17,14 @@ class IndexPage extends React.Component {
     const { data } = this.props;
     const projectData = data.allMdx.edges;
     const projectPanels = projectData.map(({ node }) => <Panel node={node} />);
+
+    const spotlightLinks = [
+      { link: "https://twitter.com/_JoelYe", icon: FiTwitter, title: "Twitter" },
+      { link: "https://github.com/joel99", icon: FiGithub, title: "GitHub" },
+      { link: "https://www.linkedin.com/in/joelye/", icon: FiLinkedin, title: "LinkedIn" },
+      { link: "/resume.pdf", icon: FiFileText, title: "Resume" }
+    ];
+
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -30,9 +37,7 @@ class IndexPage extends React.Component {
             <h3> Student + Dev + Researcher </h3>
             <p> {status} </p>
             <div style={styles.links}>
-              <SocialIcon url="https://twitter.com/_JoelYe" />
-              <SocialIcon url="https://www.linkedin.com/in/joelye/" />
-              <SocialIcon url="https://github.com/joel99" />
+              {spotlightLinks.map(sl => <PaddedLink {...sl} />)}
             </div>
           </div>
         </div>
@@ -49,6 +54,15 @@ class IndexPage extends React.Component {
     )
   }
 }
+
+// TODO how can we get the alt to fire on the div?
+const PaddedLink = ({link, icon: Icon, ...other}) => (
+  <Link to={link} style={styles.linkMargin}>
+    <div style={styles.paddedIcon}>
+      <Icon {...other} />
+    </div>
+  </Link>
+);
 
 const styles = {
   header: {
@@ -69,12 +83,15 @@ const styles = {
   links: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
     width: "100%",
-    maxWidth: "10em"
+    position: "relative",
+    left: "-0.5em",
   },
-  a: {
-    textDecoration: "none"
+  paddedIcon: {
+    padding: "0.5em",
+  },
+  linkMargin: {
+    margin: "0.5em"
   }
 }
 
