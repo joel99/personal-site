@@ -1,14 +1,15 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-// TODO add email (FiMail)
 import { FiGithub, FiTwitter, FiLinkedin, FiFileText } from "react-icons/fi";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Panel from "../components/panel"
 
+// TODO add email (FiMail)
 // TODO link status to CMS
+// TODO move to YAML instead of frontmatter
 class IndexPage extends React.Component {
   render() {
     const { data } = this.props;
@@ -133,7 +134,11 @@ export const pageQuery = graphql`
             code
             title
             image {
-              base
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }

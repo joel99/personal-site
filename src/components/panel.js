@@ -11,9 +11,6 @@ import Img from "gatsby-image";
 
 import { ButtonLink } from "./button"
 
-// TODO move to YAML
-// TODO image refactor out into a separate gallery component
-// TODO style other things
 const Panel = ({ node }) => {
 
   const { frontmatter: data } = node;
@@ -25,26 +22,10 @@ const Panel = ({ node }) => {
           author
         }
       }
-      allFile(filter: {
-        extension: {regex: "/(jpg)|(jpeg)|(png)/"},
-        sourceInstanceName: {eq: "projects"}})
-      {
-        edges {
-          node {
-            childImageSharp {
-              fluid(quality: 100) {
-                originalName
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
     }
   `);
 
-  // Find the right one
-  const image = queriedData.allFile.edges.find(e => e.node.childImageSharp.fluid.originalName === data.image.base);
+  const image = data.image.childImageSharp;
 
   const title = data.title || node.fields.slug;
   const authorSpans = data.authors.map(a => a.trim()).map((a, i) => {
@@ -71,7 +52,7 @@ const Panel = ({ node }) => {
   }
   return (
     <div style={styles.container} key={node.fields.slug}>
-      {image &&  <Img fluid={image.node.childImageSharp.fluid} alt={title} />}
+      {image &&  <Img fluid={image.fluid} alt={title} />}
       <h3 style={styles.compactHeader}>
         {title}
       </h3>
