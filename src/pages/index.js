@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-
+import Img from "gatsby-image"
 // TODO add email (FiMail)
 import { FiGithub, FiTwitter, FiLinkedin, FiFileText } from "react-icons/fi";
 
@@ -14,6 +14,9 @@ class IndexPage extends React.Component {
     const { data } = this.props;
     const siteTitle = data.site.siteMetadata.title;
     const status = "Say hello: joelye9 at gmail dot com";
+
+    const pfp = data.pfp.childImageSharp;
+
     const projectData = data.allMdx.edges;
 
     // https://stackoverflow.com/questions/52574783/gatsby-image-path-from-json
@@ -34,7 +37,9 @@ class IndexPage extends React.Component {
           keywords={[`blog`, `joel`, `portfolio`]}
         />
         <div style={styles.header}>
-          <img style={styles.profile} src="./pfp_small.jpg" />
+          <div style={styles.profile}>
+            <Img fluid={pfp.fluid} />
+          </div>
           <div style={styles.spotlight}>
             <h3> Student + Dev + Researcher </h3>
             <p> {status} </p>
@@ -73,9 +78,8 @@ const styles = {
   },
   profile: {
     margin: 0,
-    maxWidth: "10em",
-    height: "auto",
-    objectFit: "cover",
+    width: "12em",
+    height: "12em",
   },
   spotlight: {
     display: "flex",
@@ -104,6 +108,13 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    pfp: file(relativePath: { eq: "pfp_small.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
     allMdx(
