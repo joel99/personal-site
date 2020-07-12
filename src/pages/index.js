@@ -76,15 +76,18 @@ const styles = {
   header: {
     display: "flex",
     flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexWrap: "wrap",
   },
   profile: {
     margin: 0,
+    minWidth: "300px",
     width: "12em",
-    height: "12em",
+    paddingRight: "1em",
   },
   spotlight: {
     display: "flex",
-    marginLeft: "4em",
     flexDirection: "column"
   },
   links: {
