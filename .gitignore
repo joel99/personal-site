@@ -1,3 +1,5 @@
+*.gz
+resume/*.pdf
 # Logs
 logs
 *.log

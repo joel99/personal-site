@@ -1,0 +1,35 @@
+%!TEX program = lualatex
+
+% resume.tex
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[letterpaper,margin=0.8in]{geometry}
+\usepackage{mdwlist}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\usepackage{fontawesome}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xhfill}
+
+\input{defs.tex}
+\togglefalse{dense}
+
+% and the actual content starts here
+\begin{document}
+
+\input{header.tex}
+
+\input{education.tex}
+
+\input{pubs.tex}
+
+\input{projects.tex}
+
+\input{experience.tex}
+
+\input{skills.tex}
+
+\end{document}

@@ -1,0 +1,64 @@
+\setmainfont{OpenSans}[
+	Path=./,
+	Extension=.ttf,
+    UprightFont = *-Regular,
+    BoldFont = *-SemiBold,
+    ItalicFont = *-Italic
+]
+\newfontfamily{\lato}{Lato}[
+Path=./,
+	Extension = .ttf,
+	UprightFont = *-Regular,
+    BoldFont = *-Bold
+]
+\usepackage{textcomp}
+\pagestyle{empty}
+\setlength{\tabcolsep}{0em}
+\linespread{1.1}
+
+% Custom definitions
+
+\newcommand{\ezbullet}{$\boldsymbol{\cdot}$}
+% Subsections
+\newcommand\ruleafter[1]{#1~\xhrulefill{gray}{1pt}}
+
+\titleformat{\subsection}
+       {\normalfont\lato\fontsize{14}{16}\bfseries}
+       {\thesubsection}
+       {1em}{\ruleafter}[]
+
+\setlist[itemize]{noitemsep, topsep=0pt, label=\ezbullet}
+
+
+% tab
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+% indentsection style, used for sections that aren't already in lists
+% that need indentation to the level of all text in the document
+\newenvironment{indentsection}[1]%
+{\begin{list}{}%
+	{\setlength{\leftmargin}{#1}}%
+	\item[]%
+}
+{\end{list}}
+
+% opposite of above; bump a section back toward the left margin
+\newenvironment{unindentsection}[1]%
+{\begin{list}{}%
+	{\setlength{\leftmargin}{-0.5#1}}%
+	\item[]%
+}
+{\end{list}}
+
+% format two pieces of text, one left aligned and one right aligned
+\newcommand{\headerrow}[2]
+{#1 \hfill #2 \\}
+
+\addtolength{\topmargin}{-.2in}
+\addtolength{\textheight}{.4in}
+
+\usepackage{comment}
+\usepackage{etoolbox}
+
+\newtoggle{dense}
+
