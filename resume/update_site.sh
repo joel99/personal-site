@@ -1,2 +1,2 @@
-cp dev.pdf ~/Documents/code/personal-site/static/resume.pdf
-cd ~/Documents/code/personal-site/static/
+cp dev.pdf ~/Documents/personal-site/static/resume.pdf
+cd ~/Documents/personal-site/static/
