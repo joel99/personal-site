@@ -42,7 +42,7 @@ class IndexPage extends React.Component {
             <Img fluid={pfp.fluid} />
           </div>
           <div style={styles.spotlight}>
-            <h3> Student + Dev + Researcher </h3>
+            <h3> Researcher &amp; Developer </h3>
             <p> {status} </p>
             <div style={styles.links}>
               {spotlightLinks.map(sl => <PaddedLink {...sl} />)}
