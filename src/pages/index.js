@@ -135,6 +135,7 @@ export const pageQuery = graphql`
             authors
             paper
             code
+            slides
             title
             image {
               childImageSharp {
