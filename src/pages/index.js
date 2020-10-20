@@ -52,10 +52,10 @@ class IndexPage extends React.Component {
         <section>
           <h3>Bio</h3>
           <p> I am a Master's student at Georgia Tech studying Machine Learning. My research interests fall under the (very) broad theme of relating information processing in the brain and in AI systems. I'm currently working with <a href="https://www.cc.gatech.edu/~dbatra/">Dhruv Batra</a>, <a href="https://wijmans.xyz/">Erik Wijmans</a>, and <a href="https://abhishekdas.com/">Abhishek Das</a> on embodied navigation. I also work with <a href="https://scholar.google.com/citations?user=M3-z9G4AAAAJ&hl=en">Chethan Pandarinath</a> on modeling neural data.</p>
-          <p> I hail from NYC, where I graduated from Stuyvesant High School, and did my undergrad in Computer Science at Georgia Tech. During my undergrad, I was Director of Technology for Georgia Tech's hackathon org, HackGT, where I worked to host events to promote CS education. </p>
+          <p> I hail from NYC, where I graduated from Stuyvesant High School, and did my undergrad in Computer Science at Georgia Tech. During my undergrad, I was Director of Technology for Georgia Tech's hackathon org, <a href="https://hack.gt/">HackGT</a>, where I worked to host events to promote CS education. </p>
         </section>
         <section>
-          <h3>Publications</h3>
+          <h3>Projects</h3>
           {projectPanels}
         </section>
       </Layout>
