@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { FiGithub, FiTwitter, FiLinkedin, FiFileText } from "react-icons/fi";
+import { SiGithub, SiTwitter, SiLinkedin, SiFileText, SiGooglescholar } from "react-icons/si";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -28,7 +29,8 @@ class IndexPage extends React.Component {
       { link: "https://twitter.com/_JoelYe", icon: FiTwitter, title: "Twitter" },
       { link: "https://github.com/joel99", icon: FiGithub, title: "GitHub" },
       { link: "https://www.linkedin.com/in/joelye/", icon: FiLinkedin, title: "LinkedIn" },
-      { link: "/resume.pdf", icon: FiFileText, title: "Resume" }
+      { link: "/resume.pdf", icon: FiFileText, title: "Resume" },
+      { link: "https://scholar.google.com/citations?user=CUrST4oAAAAJ&hl=en", icon: SiGooglescholar, title: "Google Scholar" }
     ];
 
     return (
@@ -51,7 +53,7 @@ class IndexPage extends React.Component {
         </div>
         <section>
           <h3>Bio</h3>
-          <p> I am a Master's student at Georgia Tech studying Machine Learning. My research interests fall under the (very) broad theme of relating information processing in the brain and in AI systems. I'm currently working with <a href="https://www.cc.gatech.edu/~dbatra/">Dhruv Batra</a>, <a href="https://wijmans.xyz/">Erik Wijmans</a>, and <a href="https://abhishekdas.com/">Abhishek Das</a> on embodied navigation. I also work with <a href="https://scholar.google.com/citations?user=M3-z9G4AAAAJ&hl=en">Chethan Pandarinath</a> on modeling neural data.</p>
+          <p> I am a Master's student at Georgia Tech studying Machine Learning. My research interests fall under the broad theme of relating information processing in the brain and in AI systems (i.e. biological vs. artificial neural networks), with a eye towards applications in brain-computer interfaces. I'm currently working with <a href="https://www.cc.gatech.edu/~dbatra/">Dhruv Batra</a>, <a href="https://wijmans.xyz/">Erik Wijmans</a>, and <a href="https://abhishekdas.com/">Abhishek Das</a> on embodied navigation. I also work with <a href="https://scholar.google.com/citations?user=M3-z9G4AAAAJ&hl=en">Chethan Pandarinath</a> on modeling neural data.</p>
           <p> I hail from NYC, where I graduated from Stuyvesant High School, and did my undergrad in Computer Science at Georgia Tech. During my undergrad, I was Director of Technology for Georgia Tech's hackathon org, <a href="https://hack.gt/">HackGT</a>, where I worked to host events to promote CS education. </p>
         </section>
         <section>
@@ -136,6 +138,7 @@ export const pageQuery = graphql`
             paper
             code
             slides
+            video
             title
             image {
               childImageSharp {

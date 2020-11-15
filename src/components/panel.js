@@ -55,6 +55,11 @@ const Panel = ({ node }) => {
       <ButtonLink to={data.slides} name={"Slides"} />
     </div>);
   }
+  if (data.video) {
+    links.push(<div style={styles.linkItem}>
+      <ButtonLink to={data.video} name={"Video"} />
+    </div>);
+  }
   return (
     <div style={styles.container} key={node.fields.slug}>
       {image &&  <Img fluid={image.fluid} alt={title} />}
