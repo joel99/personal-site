@@ -62,16 +62,20 @@ const Panel = ({ node }) => {
   }
   return (
     <div style={styles.container} key={node.fields.slug}>
-      {image &&  <Img fluid={image.fluid} alt={title} />}
-      <h3 style={styles.compactHeader}>
-        {title}
-      </h3>
       <div>
-        {authorSpans}
+        <h3 style={styles.compactHeader}>
+          {title}
+        </h3>
+        <div>
+          {authorSpans}
+        </div>
+        <small>{data.pub_info}</small>
+        <div style={styles.links}>
+          {links}
+        </div>
       </div>
-      <small>{data.pub_info}</small>
-      <div style={styles.links}>
-        {links}
+      <div>
+        {image &&  <Img fluid={image.fluid} alt={title} />}
       </div>
     </div>
   );
@@ -98,7 +102,7 @@ const styles = {
   compactHeader: {
     marginTop: "0.5em",
     marginBottom: "0.5em"
-  }
+  },
 }
 
 export default Panel

@@ -24,6 +24,11 @@ class IndexPage extends React.Component {
     // https://stackoverflow.com/questions/52574783/gatsby-image-path-from-json
     // https://stackoverflow.com/questions/57515558/how-should-i-import-all-the-images-under-a-folder-in-gatsby
     const projectPanels = projectData.map(({ node }) => <Panel node={node} />);
+    const projectPanelsBreak = [projectPanels[0]];
+    for (let i = 1; i < projectPanels.length; i++) {
+      projectPanelsBreak.push(<hr style={styles.divider}/>);
+      projectPanelsBreak.push(projectPanels[i]);
+    }
 
     const spotlightLinks = [
       { link: "https://twitter.com/_JoelYe", icon: FiTwitter, title: "Twitter" },
@@ -58,7 +63,7 @@ class IndexPage extends React.Component {
         </section>
         <section>
           <h3>Projects</h3>
-          {projectPanels}
+          {projectPanelsBreak}
         </section>
       </Layout>
     )
@@ -104,6 +109,10 @@ const styles = {
   },
   linkMargin: {
     margin: "0.5em"
+  },
+  divider: {
+    margin: "2.0em 0em 1.0em",
+    color: "#bbbbbb"
   }
 }
 
