@@ -35,7 +35,7 @@ class IndexPage extends React.Component {
       { link: "https://github.com/joel99", icon: FiGithub, title: "GitHub" },
       { link: "https://www.linkedin.com/in/joelye/", icon: FiLinkedin, title: "LinkedIn" },
       { link: "/resume.pdf", icon: FiFileText, title: "Resume" },
-      { link: "https://scholar.google.com/citations?user=CUrST4oAAAAJ&hl=en", icon: SiGooglescholar, title: "Google Scholar" }
+      { link: "https://scholar.google.com/citations?user=CUrST4oAAAAJ&hl=en", icon: SiGooglescholar, title: "Google Scholar" },
     ];
 
     return (
@@ -62,6 +62,8 @@ class IndexPage extends React.Component {
             I'm currently working with <a href="https://www.cc.gatech.edu/~dbatra/">Dhruv Batra</a>, <a href="https://wijmans.xyz/">Erik Wijmans</a>, and <a href="https://abhishekdas.com/">Abhishek Das</a> on embodied navigation.
               I also work with <a href="https://scholar.google.com/citations?user=M3-z9G4AAAAJ&hl=en">Chethan Pandarinath</a> on modeling neural data.</p>
           <p> I grew up in NYC, where I graduated from Stuyvesant High School, and I did my undergrad in Computer Science at Georgia Tech. During my undergrad, I was Director of Technology for Georgia Tech's hackathon org, <a href="https://hack.gt/">HackGT</a>, where we worked to host events to promote CS education. </p>
+
+          <p> Hobbies I make time for include <a href="https://www.goodreads.com/user/show/97533622-joel-ye">reading</a> (and am always open to recommendations) and studying Japanese and Chinese.</p>
         </section>
         <section>
           {data.news.nodes.map(RemarkTemplate)}
@@ -115,6 +117,7 @@ const styles = {
   links: {
     display: "flex",
     flexDirection: "row",
+    fontSize: "1.1em",
     width: "100%",
     position: "relative",
     left: "-0.5em",
