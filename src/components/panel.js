@@ -99,7 +99,8 @@ const styles = {
   },
   links: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
+    marginBottom: "0.5em",
   },
   linkItem: {
     marginRight: "4px"

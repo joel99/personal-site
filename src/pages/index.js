@@ -49,8 +49,8 @@ class IndexPage extends React.Component {
           </div>
           <div style={styles.spotlight}>
             {/* <h3> Researcher &amp; Developer </h3> */}
-            <h4> Graduate Student </h4>
-            <h4> Georgia Tech &#8594; CMU </h4>
+            <h4> (Incoming) PhD student at CMU </h4>
+            {/* <p> MS @ Georgia Tech &#8594; PhD student @ CMU </p> */}
             <p> Say hello: joelye9 at gmail dot com </p>
             <div style={styles.links}>
               {spotlightLinks.map(sl => <PaddedLink {...sl} />)}
