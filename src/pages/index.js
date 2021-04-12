@@ -15,7 +15,6 @@ class IndexPage extends React.Component {
   render() {
     const { data } = this.props;
     const siteTitle = data.site.siteMetadata.title;
-    const status = "Say hello: joelye9 at gmail dot com";
 
     const pfp = data.pfp.childImageSharp;
 
@@ -49,8 +48,10 @@ class IndexPage extends React.Component {
             <Img fluid={pfp.fluid} />
           </div>
           <div style={styles.spotlight}>
-            <h3> Researcher &amp; Developer </h3>
-            <p> {status} </p>
+            {/* <h3> Researcher &amp; Developer </h3> */}
+            <h4> Graduate Student </h4>
+            <h4> Georgia Tech &#8594; CMU </h4>
+            <p> Say hello: joelye9 at gmail dot com </p>
             <div style={styles.links}>
               {spotlightLinks.map(sl => <PaddedLink {...sl} />)}
             </div>
