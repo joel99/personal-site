@@ -45,6 +45,11 @@ const Panel = ({ node }) => {
       <ButtonLink to={data.paper} name={"Paper"} />
     </div>);
   }
+  if (data.website) {
+    links.push(<div style={styles.linkItem}>
+      <ButtonLink to={data.code} name={"Website"} />
+    </div>);
+  }
   if (data.code) {
     links.push(<div style={styles.linkItem}>
       <ButtonLink to={data.code} name={"Code"} />
