@@ -170,6 +170,7 @@ export const pageQuery = graphql`
             authors
             paper
             code
+            website
             slides
             video
             title
