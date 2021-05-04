@@ -1,4 +1,5 @@
 ### News
+- [5/4/21] Course project writeups for [learning from demonstration](https://joel99.github.io/lfd_7648_final.pdf) and [computation and the brain](https://github.com/joel99/illusions) posted.
 - [4/8/21] I will be beginning my [PhD in Neural Computation](https://www.cmu.edu/ni/academics/pnc/) at CMU in the Fall!
 - [4/8/21] I will be interning with [Dr. Robinson Piramuthu](https://scholar.google.com/citations?user=2CkqEGcAAAAJ) as an Applied Scientist intern at Amazon for Summer 21.
 - [3/31/21] Awarded the [Donald V. Jackson Fellowship](https://www.cc.gatech.edu/awards) (for 1st year MS students).
